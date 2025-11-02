@@ -28,27 +28,17 @@ Built a secure, production-ready REST API backend for a news aggregation platfor
 
 ### ⚙️ API Functionality
 
-#### Requests
+### Authentication
+- `POST /signup` - Register new user
+- `POST /signin` - User login (returns JWT token)
 
-**GET /users/me**
-> Returns user information (email and name)
+### User Operations (Protected)
+- `GET /users/me` - Get current user information
 
-**GET /articles**
-> Returns all articles saved by the user
-
-**POST /articles**
-> Creates an article with the following fields in the request body:  
-> `keyword`, `title`, `text`, `date`, `source`, `link`, and `image`
-
-**DELETE /articles/:articleId**
-> Deletes a saved article by its `_id`
-
-**POST /signup**
-> Creates a user with the following fields in the request body:  
-> `email`, `password`, and `name`
-
-**POST /signin**
-> Verifies the provided email and password and returns a JWT
+### Article Operations (Protected)
+- `GET /articles` - Get all articles saved by current user
+- `POST /articles` - Create new article
+- `DELETE /articles/:articleId` - Delete article by ID
 
 ---
 
