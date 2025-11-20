@@ -1,80 +1,88 @@
-# REST-API
+**News Explorer API - RESTful Backend Service**
+
+Built a secure, production-ready REST API backend for a news aggregation platform. Implemented JWT authentication, user management, and article CRUD operations with comprehensive security features.
 
 ![alt text](https://i.ibb.co/yQwyp0R/123.png "Logo NewsExplorer")
 
-## для проекта [news-explorer](http://news-explorer.ru/)
+## for the project [news-explorer](http://news-explorer.ru/)
 
-Обратиться к API:
+### API Endpoints
 
-- api.news-explorer.ru
-- 84.201.166.100
-
-### Используемые технологии
-
-- Менеджер процессов: pm2
-- HTTP-сервер: nginx
-- Сервер: node.js, express.js
-- Сертификат ssl: certbot(Let's Encrypt)
-- Валидация данных: celebrate(Joi)
-- База данных: mongo, mongoose
-- логирование: winston
-- остальное: npm, git
----
-
-### Функциональность API
-
-## Запросы
-
-возвращает информацию о пользователе (email и имя)
-> GET /users/me
-
-возвращает все сохранённые пользователем статьи
-> GET /articles
-
-создаёт статью с переданными в теле
-keyword, title, text, date, source, link и image
-> POST /articles
-
-удаляет сохранённую статью  по _id
-> DELETE /articles/articleId
-
-создаёт пользователя с переданными в теле
-email, password и name
-> POST /signup
-
-проверяет переданные в теле почту и пароль
-и возвращает JWT
-> POST /signin
-
-## Другой функционал
-
-Настроено логирование:
-
-- request.log, чтобы хранить информацию о всех запросах к API;
-- error.log, чтобы хранить информацию об ошибках, которые возвращало API.
+- **api.news-explorer.ru**
+- **84.201.166.100**
 
 ---
 
-### Установка и запуск проекта
+### 🧩 Technologies Used
 
-Склонируйте гит-репозиторий
-> git clone <https://github.com/zuhijan/news-exlorer-api.git>
+- **Process manager:** pm2
+- **HTTP server:** nginx
+- **Server:** node.js, express.js
+- **SSL certificate:** certbot (Let’s Encrypt)
+- **Data validation:** celebrate (Joi)
+- **Database:** mongo, mongoose
+- **Logging:** winston
+- **Others:** npm, git
 
-Установите npm-зависимости
+---
+
+### ⚙️ API Functionality
+
+### Authentication
+- `POST /signup` - Register new user
+- `POST /signin` - User login (returns JWT token)
+
+### User Operations (Protected)
+- `GET /users/me` - Get current user information
+
+### Article Operations (Protected)
+- `GET /articles` - Get all articles saved by current user
+- `POST /articles` - Create new article
+- `DELETE /articles/:articleId` - Delete article by ID
+
+---
+
+### 🪵 Logging
+
+Logging is configured for:
+
+- **request.log** — stores information about all API requests
+- **error.log** — stores information about all errors returned by the API
+
+---
+
+### 🚀 Installation and Launch
+
+**1. Clone the repository**
+```bash
+git clone https://github.com/zuhijan/news-exlorer-api.git
+```
+
+
+
+2. Install npm dependencies
+
 > npm install
 
-Установите MongoDB
+
+3. Install MongoDB
 > <https://docs.mongodb.com/manual/installation/>
 
-#### Запустите проект
+### 🏗️ Run the Project
 
-Production сборка.Запустить сервер на localhost:3000.
+Production build — start the server on `localhost:3000`
+
 > npm run start
 
-Dev сборка.Запустить сервер на localhost:3000 с хот релоудом;
+
+Development build — start the server on `localhost:3000` with hot reload
+
 > npm run dev
 
-Для Production сборки, необходим .env:
+### 🔐 Environment Variables (for production)
+
+Create a `.env` file with the following:
+
 > NODE_ENV=production
 > JWT_SECRET=some-secret-key
 > DB_ADRESS='mongodb://localhost:27017/newsdatab'
