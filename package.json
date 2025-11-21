@@ -19,8 +19,8 @@
   "homepage": "https://github.com/zuhijan/news-exlorer-api#readme",
   "devDependencies": {
     "cross-env": "^6.0.3",
-    "eslint": "^6.5.1",
-    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint": "^9.39.1",
+    "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.18.2",
     "nodemon": "^1.19.3"
   },
